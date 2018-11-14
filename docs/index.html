@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Vue-Multiselect</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
+  </head>
+  <body>
+
+    <div id="app">
+      <label class="typo__label">Single select</label>
+      <multiselect v-model="my_value" :options="my_options" :searchable="false" :close-on-select="false" :show-labels="false" placeholder="Pick a value"></multiselect>
+      <pre class="language-json"><code>{{ my_value  }}</code></pre>
+    </div>
+
+    <script>
+
+      document.addEventListener("DOMContentLoaded", () => {
+        'use strict';
+
+        // Vue.component('multiselect', window.VueMultiselect.default);
+
+        new Vue({
+          el: '#app',
+          components: {
+            'multiselect': window.VueMultiselect.default,
+          },
+          data () {
+            return {
+              my_value: '',
+              my_options: [
+                'Select option', 'options', 'selected', 'mulitple', 'label', 'searchable', 'clearOnSelect', 'hideSelected', 'maxHeight', 'allowEmpty', 'showLabels', 'onChange', 'touched'
+              ]
+            }
+          }
+        });
+
+
+      });
+
+    </script>
+
+  </body>
+</html>
